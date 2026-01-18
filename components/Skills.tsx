@@ -6,13 +6,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const skills = [
   { name: "React", icon: "⚛️", level: 95 },
-  { name: "Next.js", icon: "▲", level: 90 },
-  { name: "TypeScript", icon: "TS", level: 88 },
+  { name: "Java Script", icon: "🟨", level: 90 },
+  { name: "CPP", icon: "⚙️🚀", level: 88 },
   { name: "GSAP", icon: "🟢", level: 85 },
   { name: "Tailwind CSS", icon: "🎨", level: 95 },
   { name: "Framer Motion", icon: "🔮", level: 80 },
-  { name: "Three.js", icon: "🧊", level: 70 },
-  { name: "Node.js", icon: "🟩", level: 75 },
+  { name: "Python", icon: "🐍", level: 70 },
+  { name: "DSA", icon: "🧠", level: 65 },
 ]
 
 export default function Skills() {

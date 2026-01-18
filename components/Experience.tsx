@@ -6,30 +6,31 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const experiences = [
   {
-    year: "2023 - Present",
-    title: "Senior Frontend Developer",
-    company: "Tech Innovation Co.",
+    year: "2025 3-Months",
+    title: "Web Developer",
+    company: "Arcoders Digital Solutions",
     description:
       "Leading frontend architecture and mentoring junior developers. Building scalable web applications with React and Next.js.",
   },
   {
-    year: "2021 - 2023",
-    title: "Frontend Developer",
-    company: "Digital Agency Pro",
+    year: "2025 3-Months",
+    title: "React Developer",
+    company: "Lee Home Packers And Movers",
     description:
       "Developed award-winning websites and web applications. Specialized in animations and interactive experiences.",
   },
   {
-    year: "2019 - 2021",
-    title: "Junior Developer",
-    company: "StartUp Labs",
+    year: "2025 3-Months",
+    title: "Frontend Web Developer",
+    company: "Lee Home Packers And Movers",
     description:
       "Started my journey in web development. Built responsive websites and learned modern frontend frameworks.",
   },
   {
-    year: "2015 - 2019",
+    
+    year: "2023 3-Months",
     title: "Computer Science Degree",
-    company: "University of Technology",
+    company: "University of Delhi",
     description: "Bachelor's degree in Computer Science with focus on software engineering and web technologies.",
   },
 ]

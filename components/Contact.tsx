@@ -16,6 +16,25 @@ export default function Contact() {
     email: "",
     message: "",
   })
+  const socials = [
+    {
+      name: "GitHub",
+      url: "https://github.com/rishabh727",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://linkedin.com/in/rishabh-maurya-1158aa29a/",
+    },
+    {
+      name: "Twitter",
+      url: "https://twitter.com/Rishabhm7275",
+    },
+    {
+      name: "Instagram",
+      url: "https://instagram.com/rishabhmaurya____",
+    },
+
+  ];
 
   useEffect(() => {
     const heading = headingRef.current
@@ -96,21 +115,29 @@ export default function Contact() {
 
             <div className="mt-12 space-y-6">
               <div>
-                <span className="text-sm text-zinc-400 uppercase tracking-wider">Email</span>
-                <p className="text-xl mt-1 text-white">hello@johndoe.dev</p>
+                <span className="text-sm text-zinc-400 uppercase tracking-wider">Email </span> <br />
+                <a
+                  href="mailto:rishabh7275m@gmail.com"
+                  className="text-xl mt-1 text-white hover:none"
+                >
+                  rishabh7275m@gmail.com
+                </a>
+
               </div>
               <div>
                 <span className="text-sm text-zinc-400 uppercase tracking-wider">Location</span>
-                <p className="text-xl mt-1 text-white">San Francisco, CA</p>
+                <p className="text-xl mt-1 text-white">Delhi , India</p>
               </div>
-              <div className="flex gap-4 mt-8">
-                {["GitHub", "LinkedIn", "Twitter"].map((social) => (
-                  <MagneticButton key={social}>
+              <div className="flex gap-4 mt-8 flex-wrap">
+                {socials.map((social) => (
+                  <MagneticButton key={social.name}>
                     <a
-                      href="#"
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="px-4 py-2 border border-zinc-800 rounded-full text-sm text-white hover:bg-white hover:text-[#0a0a0a] transition-colors duration-300"
                     >
-                      {social}
+                      {social.name}
                     </a>
                   </MagneticButton>
                 ))}
@@ -177,7 +204,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-32 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-zinc-400 text-sm">© 2026 John Doe. All rights reserved.</p>
+          <p className="text-zinc-400 text-sm">© 2026  All rights reserved.</p>
           <p className="text-zinc-400 text-sm">Built with React, GSAP & Tailwind CSS</p>
         </div>
       </div>

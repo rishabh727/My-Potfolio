@@ -36,7 +36,7 @@ export default function About() {
   }, [])
 
   const aboutText =
-    "I'm a frontend developer passionate about creating beautiful, performant, and accessible web experiences. With expertise in React, Next.js, and modern animation libraries, I transform designs into seamless interactive journeys."
+    "I'm Rishabh a frontend developer passionate about creating beautiful, performant, and accessible web experiences. With expertise in JavaScript, React, and modern animation libraries, I transform designs into seamless interactive journeys."
 
   return (
     <section
@@ -56,10 +56,10 @@ export default function About() {
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { number: "5+", label: "Years Experience" },
-            { number: "50+", label: "Projects Completed" },
-            { number: "30+", label: "Happy Clients" },
-            { number: "10+", label: "Awards Won" },
+            { number: "2+", label: "Years Experience" },
+            { number: "5+", label: "Projects Completed" },
+            { number: "2", label: "Internship" },
+            { number: "1", label: "Certification"},
           ].map((stat, index) => (
             <div key={index} className="text-center md:text-left">
               <span className="text-4xl md:text-5xl font-serif font-bold text-white">{stat.number}</span>

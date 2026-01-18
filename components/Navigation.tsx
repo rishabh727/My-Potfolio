@@ -27,7 +27,7 @@ export default function Navigation() {
     })
   }, [])
 
-  const navLinks = ["About", "Skills", "Projects", "Experience", "Contact"]
+  const navLinks = ["About", "Skills", "Experience", "Contact"]
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id.toLowerCase())
@@ -44,7 +44,7 @@ export default function Navigation() {
     >
       <MagneticButton>
         <a href="#" className="text-xl font-serif font-semibold tracking-tight text-white">
-          JD.
+          RM
         </a>
       </MagneticButton>
 
