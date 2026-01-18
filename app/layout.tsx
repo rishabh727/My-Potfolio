@@ -15,15 +15,15 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '',
+        url: '#',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '',
+        url: '#',
         media: '(prefers-color-scheme: dark)',
       },
       {
-       url: '',
+        url: '#',
 
       
         type: 'image/svg+xml',
