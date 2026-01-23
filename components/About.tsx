@@ -42,7 +42,7 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center py-32 px-6 md:px-12 bg-[#0a0a0a]"
+      className="min-h-screen flex items-center justify-center py-32 px-6 md:px-12 bg-[#0a0a0a] sm:overflow-hidden"
     >
       <div className="max-w-5xl">
         <span className="text-sm font-medium tracking-[0.3em] text-zinc-400 uppercase mb-8 block">About Me</span>

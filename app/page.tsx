@@ -40,7 +40,7 @@ export default function Page() {
   }, [])
 
   return (
-    <div className="relative bg-[#0a0a0a] text-[#fafafa]">
+    <div className="relative bg-[#0a0a0a] text-[#fafafa] w-full overflow-x-hidden">
       <CustomCursor />
       <Navigation />
       <main>
