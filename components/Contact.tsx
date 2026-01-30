@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -11,35 +10,27 @@ export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     message: "",
   })
-  const socials = [
-    {
-      name: "GitHub",
-      url: "https://github.com/rishabh727",
-    },
-    {
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/rishabh-maurya-1158aa29a/",
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/Rishabhm7275",
-    },
-    {
-      name: "Instagram",
-      url: "https://instagram.com/rishabhmaurya____",
-    },
 
-  ];
+  const [loading, setLoading] = useState(false)
+
+  const socials = [
+    { name: "GitHub", url: "https://github.com/rishabh727" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/rishabh-maurya-1158aa29a/" },
+    { name: "Twitter", url: "https://twitter.com/Rishabhm7275" },
+    { name: "Instagram", url: "https://instagram.com/rishabhmaurya____" },
+  ]
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
     const heading = headingRef.current
     const form = formRef.current
-
     if (!heading || !form) return
 
     gsap.fromTo(
@@ -54,9 +45,8 @@ export default function Contact() {
         scrollTrigger: {
           trigger: heading,
           start: "top 80%",
-          toggleActions: "play none none reverse",
         },
-      },
+      }
     )
 
     gsap.fromTo(
@@ -70,22 +60,44 @@ export default function Contact() {
         scrollTrigger: {
           trigger: form,
           start: "top 80%",
-          toggleActions: "play none none reverse",
         },
-      },
+      }
     )
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+      ScrollTrigger.getAll().forEach((t) => t.kill())
     }
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // 🔥 REAL SMTP SUBMIT
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formState)
+    setLoading(true)
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      })
+
+      const data = await res.json()
+
+      if (!data.success) throw new Error("Email failed")
+
+      alert("Message sent successfully 🚀")
+
+      setFormState({ name: "", email: "", message: "" })
+    } catch (error) {
+      alert("Something went wrong 😢")
+    } finally {
+      setLoading(false)
+    }
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormState((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -95,19 +107,28 @@ export default function Contact() {
   const headingText = "Let's Work Together"
 
   return (
-    <section id="contact" ref={sectionRef} className="min-h-screen py-32 px-6 md:px-12 flex items-center bg-[#0a0a0a]">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="min-h-screen py-32 px-6 md:px-12 flex items-center bg-[#0a0a0a]"
+    >
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
-            <span className="text-sm font-medium tracking-[0.3em] text-zinc-400 uppercase mb-4 block">
+            <span className="text-sm tracking-[0.3em] text-zinc-400 uppercase mb-4 block">
               Get In Touch
             </span>
+
             <h2
               ref={headingRef}
-              className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-white"
+              className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white"
             >
-              {headingText.split("").map((char, index) => (
-                <span key={index} className="char inline-block" style={{ whiteSpace: char === " " ? "pre" : "normal" }}>
+              {headingText.split("").map((char, i) => (
+                <span
+                  key={i}
+                  className="char inline-block"
+                  style={{ whiteSpace: char === " " ? "pre" : "normal" }}
+                >
                   {char}
                 </span>
               ))}
@@ -115,29 +136,26 @@ export default function Contact() {
 
             <div className="mt-12 space-y-6">
               <div>
-                <span className="text-sm text-zinc-400 uppercase tracking-wider">Email </span> <br />
-                <a
-                  href="mailto:rishabh7275m@gmail.com"
-                  className="text-xl mt-1 text-white hover:none"
-                >
+                <span className="text-sm text-zinc-400 uppercase">Email</span>
+                <p className="text-xl text-white">
                   rishabh7275m@gmail.com
-                </a>
+                </p>
+              </div>
 
-              </div>
               <div>
-                <span className="text-sm text-zinc-400 uppercase tracking-wider">Location</span>
-                <p className="text-xl mt-1 text-white">Delhi , India</p>
+                <span className="text-sm text-zinc-400 uppercase">Location</span>
+                <p className="text-xl text-white">Delhi, India</p>
               </div>
-              <div className="flex gap-4 mt-8 flex-wrap">
-                {socials.map((social) => (
-                  <MagneticButton key={social.name}>
+
+              <div className="flex gap-4 flex-wrap">
+                {socials.map((s) => (
+                  <MagneticButton key={s.name}>
                     <a
-                      href={social.url}
+                      href={s.url}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 border border-zinc-800 rounded-full text-sm text-white hover:bg-white hover:text-[#0a0a0a] transition-colors duration-300"
+                      className="px-4 py-2 border border-zinc-800 rounded-full text-sm text-white hover:bg-white hover:text-black transition"
                     >
-                      {social.name}
+                      {s.name}
                     </a>
                   </MagneticButton>
                 ))}
@@ -146,66 +164,45 @@ export default function Contact() {
           </div>
 
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="text-sm text-zinc-400 uppercase tracking-wider block mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formState.name}
-                onChange={handleChange}
-                className="w-full bg-transparent border-b border-zinc-800 py-4 text-lg text-white focus:outline-none focus:border-white transition-colors duration-300 placeholder:text-zinc-600"
-                placeholder="John Doe"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="text-sm text-zinc-400 uppercase tracking-wider block mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formState.email}
-                onChange={handleChange}
-                className="w-full bg-transparent border-b border-zinc-800 py-4 text-lg text-white focus:outline-none focus:border-white transition-colors duration-300 placeholder:text-zinc-600"
-                placeholder="john@example.com"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="text-sm text-zinc-400 uppercase tracking-wider block mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formState.message}
-                onChange={handleChange}
-                rows={4}
-                className="w-full bg-transparent border-b border-zinc-800 py-4 text-lg text-white focus:outline-none focus:border-white transition-colors duration-300 resize-none placeholder:text-zinc-600"
-                placeholder="Tell me about your project..."
-                required
-              />
-            </div>
+            <input
+              name="name"
+              value={formState.name}
+              onChange={handleChange}
+              placeholder="Your Name"
+              required
+              className="w-full bg-transparent border-b border-zinc-800 py-4 text-white outline-none"
+            />
+
+            <input
+              type="email"
+              name="email"
+              value={formState.email}
+              onChange={handleChange}
+              placeholder="Your Email"
+              required
+              className="w-full bg-transparent border-b border-zinc-800 py-4 text-white outline-none"
+            />
+
+            <textarea
+              name="message"
+              value={formState.message}
+              onChange={handleChange}
+              rows={4}
+              placeholder="Tell me about your project..."
+              required
+              className="w-full bg-transparent border-b border-zinc-800 py-4 text-white outline-none resize-none"
+            />
 
             <MagneticButton strength={0.2}>
               <button
                 type="submit"
-                className="mt-8 px-8 py-4 bg-white text-[#0a0a0a] rounded-full text-lg font-medium hover:scale-105 transition-transform duration-300"
+                disabled={loading}
+                className="mt-8 px-8 py-4 bg-white text-black rounded-full text-lg hover:scale-105 transition"
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </MagneticButton>
           </form>
-        </div>
-
-        <div className="mt-32 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-zinc-400 text-sm">© 2026  All rights reserved.</p>
-          <p className="text-zinc-400 text-sm">Built with React, GSAP & Tailwind CSS</p>
         </div>
       </div>
     </section>
