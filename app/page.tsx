@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Hero from "@/components/Hero"
 import About from "@/components/About"
 import Skills from "@/components/Skills"
-// import Projects from "@/components/Projects"
+import Projects from "@/components/Projects"
 import Experience from "@/components/Experience"
 import WhyHireMe from "@/components/WhyHireMe"
 import Contact from "@/components/Contact"
@@ -47,7 +47,7 @@ export default function Page() {
         <Hero />
         <About />
         <Skills />
-        {/* <Projects /> */}
+        <Projects />
         <Experience />
         <WhyHireMe />
         <Contact />

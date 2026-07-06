@@ -11,7 +11,7 @@ const projects = [
     title: "E-Commerce Platform",
     category: "Web Development",
     image: "/modern-e-commerce-platform-dark-theme.jpg",
-    tech: ["Next.js", "Stripe", "Prisma"],
+    tech: ["React.js", "Tailwind", "Motion"],
   },
   {
     title: "Portfolio Website",
@@ -20,23 +20,23 @@ const projects = [
     tech: ["React", "GSAP", "Three.js"],
   },
   {
-    title: "SaaS Dashboard",
+    title: "Mini Jira Application",
     category: "Web Application",
     image: "/saas-dashboard-analytics-dark-theme.jpg",
     tech: ["TypeScript", "React", "D3.js"],
   },
-  {
-    title: "Mobile Banking App",
-    category: "UI/UX Design",
-    image: "/mobile-banking-app-interface-dark.jpg",
-    tech: ["Figma", "React Native"],
-  },
-  {
-    title: "AI Content Platform",
-    category: "Full Stack",
-    image: "/ai-content-platform-futuristic-dark.jpg",
-    tech: ["Next.js", "OpenAI", "PostgreSQL"],
-  },
+  // {
+  //   title: "Mobile Banking App",
+  //   category: "UI/UX Design",
+  //   image: "/mobile-banking-app-interface-dark.jpg",
+  //   tech: ["Figma", "React Native"],
+  // },
+  // {
+  //   title: "AI Content Platform",
+  //   category: "Full Stack",
+  //   image: "/ai-content-platform-futuristic-dark.jpg",
+  //   tech: ["Next.js", "OpenAI", "PostgreSQL"],
+  // },
 ]
 
 export default function Projects() {
@@ -132,7 +132,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 
     gsap.to(imageRef.current, {
       scale: 1.1,
-      duration: 0.5,
+      duration: 0.2,
     })
   }
 
