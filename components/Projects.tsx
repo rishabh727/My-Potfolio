@@ -8,22 +8,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Business web site",
     category: "Web Development",
     image: "/modern-e-commerce-platform-dark-theme.jpg",
     tech: ["React.js", "Tailwind", "Motion"],
+    url: "https://bdmautoelectricals.com/",
+
   },
   {
     title: "Portfolio Website",
     category: "Design & Development",
     image: "/creative-portfolio-website-minimal-dark.jpg",
     tech: ["React", "GSAP", "Three.js"],
+    url: "https://my-potfolio-vomo.vercel.app/",
   },
   {
     title: "Mini Jira Application",
     category: "Web Application",
     image: "/saas-dashboard-analytics-dark-theme.jpg",
     tech: ["TypeScript", "React", "D3.js"],
+    url: "https://github.com/rishabh727/mini-jira",
   },
   // {
   //   title: "Mobile Banking App",
@@ -158,7 +162,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
       data-cursor-hover
     >
-      <div className="relative w-full h-full rounded-2xl overflow-hidden border border-zinc-800">
+      <a href={project.url}><div className="relative w-full h-full rounded-2xl overflow-hidden border border-zinc-800">
         <img
           ref={imageRef}
           src={project.image || "/placeholder.svg"}
@@ -178,8 +182,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             ))}
           </div>
         </div>
-      </div>
-
+      </div></a>
       <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <svg className="w-6 h-6 text-[#0a0a0a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

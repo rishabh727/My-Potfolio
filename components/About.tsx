@@ -24,7 +24,7 @@ export default function About() {
         scrollTrigger: {
           trigger: section,
           start: "top 60%",
-          end: "bottom 40%",
+          end: "bottom 80%",
           scrub: 1,
         },
       },

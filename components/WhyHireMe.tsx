@@ -42,7 +42,7 @@ export default function WhyHireMe() {
           y: 0,
           opacity: 1,
           rotateX: 0,
-          duration: 1,
+          duration: 0.5,
           ease: "power3.out",
           scrollTrigger: {
             trigger: card,
