@@ -108,6 +108,7 @@ interface ProjectCardProps {
     category: string
     image: string
     tech: string[]
+    url:string
   }
   index: number
 }
