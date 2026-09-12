@@ -35,12 +35,13 @@ const projects = [
   //   image: "/mobile-banking-app-interface-dark.jpg",
   //   tech: ["Figma", "React Native"],
   // },
-  // {
-  //   title: "AI Content Platform",
-  //   category: "Full Stack",
-  //   image: "/ai-content-platform-futuristic-dark.jpg",
-  //   tech: ["Next.js", "OpenAI", "PostgreSQL"],
-  // },
+  {
+    title: "SIH Project",
+    category: "Full Stack",
+    image: "/ai-content-platform-futuristic-dark.jpg",
+    tech: ["Next.js", "OpenAI", "PostgreSQL"],
+    url: "https://github.com/rishabh727/SIH-Project",
+  },
 ]
 
 export default function Projects() {

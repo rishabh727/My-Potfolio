@@ -5,15 +5,23 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const skills = [
-  { name: "React", icon: "⚛️", level: 95 },
-  { name: "Java Script", icon: "🟨", level: 90 },
-  { name: "CPP", icon: "⚙️🚀", level: 88 },
+  { name: "React.js", icon: "⚛️", level: 90 },
+  { name: "JavaScript", icon: "🟨", level: 88 },
+  { name: "HTML5", icon: "🌐", level: 95 },
+  { name: "CSS3", icon: "🎨", level: 92 },
+  { name: "Tailwind CSS", icon: "💨", level: 95 },
   { name: "GSAP", icon: "🟢", level: 85 },
-  { name: "Tailwind CSS", icon: "🎨", level: 95 },
-  { name: "Framer Motion", icon: "🔮", level: 80 },
-  { name: "Python", icon: "🐍", level: 70 },
+  { name: "Framer Motion", icon: "✨", level: 80 },
+  { name: "Lenis", icon: "🌀", level: 75 },
+  { name: "C++", icon: "⚙️", level: 85 },
+  { name: "Python", icon: "🐍", level: 60 },
+  { name: "Git & GitHub", icon: "🔗", level: 80 },
+  { name: "MySQL", icon: "🗄️", level: 65 },
+  { name: "Node.js", icon: "🟢", level: 55 },
+  { name: "Responsive Design", icon: "📱", level: 92 },
+  { name: "SEO", icon: "🔍", level: 70 },
   { name: "DSA", icon: "🧠", level: 65 },
-]
+];
 
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null)
